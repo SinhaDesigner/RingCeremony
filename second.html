@@ -1,57 +1,74 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ring Ceremony</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
 
-    <title>Video Section</title>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    <style>
+body{
+background:black;
+overflow-x:hidden;
+}
 
-        *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-        }
+/* video section */
+.section{
+width:100%;
+min-height:100vh;
+}
 
-        body{
-        background:black;
-        }
+/* video responsive */
+.section video{
+width:100%;
+height:100vh;
+object-fit:cover;
+display:block;
+}
 
-        /* video section */
-        .section{
-        width:100%;
-        }
+/* mobile fix */
+@media (max-width:768px){
 
-        video{
-        width:100%;
-        height:auto;
-        display:block;
-        }
+.section video{
+height:auto;
+}
 
-    </style>
+}
+
+</style>
 
 </head>
 
 <body>
 
 <!-- FIRST VIDEO -->
+
 <div class="section">
 
-    <video autoplay muted playsinline>
-        <source src="video1.mp4" type="video/mp4">
-    </video>
+<video autoplay muted playsinline>
+
+<source src="video1.mp4" type="video/mp4">
+
+</video>
 
 </div>
 
-
 <!-- SECOND VIDEO -->
+
 <div class="section">
 
-    <video autoplay muted playsinline>
-        <source src="video2.mp4" type="video/mp4">
-    </video>
+<video autoplay muted playsinline>
+
+<source src="video2.mp4" type="video/mp4">
+
+</video>
 
 </div>
 
