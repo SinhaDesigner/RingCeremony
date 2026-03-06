@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ring Ceremony</title>
+
+    <style>
+
+        html,body{
+
+        margin:0;
+        padding:0;
+        height:100%;
+
+        background:black;
+
+        }
+
+        /* full screen video */
+
+        video{
+
+        position:fixed;
+
+        top:0;
+        left:0;
+
+        width:100vw;
+        height:100vh;
+
+        object-fit:cover;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- door video -->
+
+<video id="doorVideo" playsinline>
+
+    <source src="/door.mp4" type="video/mp4">
+
+</video>
+
+<script>
+
+    let video=document.getElementById("doorVideo")
+
+    function startVideo(){
+
+    video.play()
+
+    video.onended=function(){
+
+    window.location.href="/second"
+
+    }
+
+    }
+
+    /* laptop double click */
+
+    video.addEventListener("dblclick",startVideo)
+
+    /* mobile double tap */
+
+    let lastTap=0
+
+    video.addEventListener("touchend",function(){
+
+    let now=new Date().getTime()
+
+    if(now-lastTap<300){
+
+    startVideo()
+
+    }
+
+    lastTap=now
+
+    })
+
+</script>
+
+</body>
+
+</html>
