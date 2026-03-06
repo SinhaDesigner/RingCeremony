@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ring Ceremony</title>
-
-<style>
+<title>Ring Ceremony</title><style>
 
 *{
 margin:0;
@@ -25,52 +21,43 @@ width:100%;
 min-height:100vh;
 }
 
-/* video responsive */
-.section video{
+/* video style */
+video{
 width:100%;
 height:100vh;
 object-fit:cover;
 display:block;
 }
 
-/* mobile fix */
+/* mobile video hidden */
+.mobile-video{
+display:none;
+}
+
+/* mobile screen */
 @media (max-width:768px){
 
-.section video{
+.desktop-video{
+display:none;
+}
+
+.mobile-video{
+display:block;
+}
+
+video{
 height:auto;
 }
 
 }
 
-</style>
-
-</head>
-
-<body>
-
-<!-- FIRST VIDEO -->
-
-<div class="section">
-
-<video autoplay muted playsinline>
-
-<source src="video1.mp4" type="video/mp4">
-
-</video>
-
-</div>
-
-<!-- SECOND VIDEO -->
-
-<div class="section">
-
-<video autoplay muted playsinline>
-
-<source src="video2.mp4" type="video/mp4">
-
-</video>
-
-</div>
-
-</body>
+</style></head><body><!-- FIRST VIDEO --><div class="section"><video class="desktop-video" autoplay muted playsinline>
+<source src="video1-desktop.mp4" type="video/mp4">
+</video><video class="mobile-video" autoplay muted playsinline>
+<source src="video1-mobile.mp4" type="video/mp4">
+</video></div><!-- SECOND VIDEO --><div class="section"><video class="desktop-video" autoplay muted playsinline>
+<source src="video2-desktop.mp4" type="video/mp4">
+</video><video class="mobile-video" autoplay muted playsinline>
+<source src="video2-mobile.mp4" type="video/mp4">
+</video></div></body>
 </html>
