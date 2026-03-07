@@ -2,11 +2,9 @@
 <html>
 
 <head>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-
 body{
 margin:0;
 overflow:hidden;
@@ -20,7 +18,6 @@ width:100vw;
 height:100vh;
 object-fit:cover;
 }
-
 </style>
 
 </head>
@@ -36,9 +33,9 @@ object-fit:cover;
 let video = document.getElementById("doorVideo");
 let started = false;
 
-/* SCREEN TAP / CLICK */
+/* Single Tap / Click Anywhere */
 
-document.body.addEventListener("pointerdown", function(){
+document.addEventListener("click", function(){
 
 if(!started){
 video.play();
@@ -47,7 +44,7 @@ started = true;
 
 });
 
-/* VIDEO END → NEXT PAGE */
+/* Video End → Next Page */
 
 video.onended = function(){
 window.location.href = "second.html";
