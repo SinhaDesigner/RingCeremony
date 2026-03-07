@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Videos</title>
 
 <style>
 
 body{
 margin:0;
+overflow:hidden;
 background:black;
 }
 
 video{
-width:100%;
+width:100vw;
+height:50vh;
+object-fit:cover;
 display:block;
 }
 
-/* desktop */
+/* Desktop */
 
 .desktop{
 display:block;
@@ -27,7 +29,7 @@ display:block;
 display:none;
 }
 
-/* mobile */
+/* Mobile */
 
 @media(max-width:768px){
 
@@ -47,26 +49,26 @@ display:block;
 
 <body>
 
-<!-- Desktop -->
+<!-- Desktop Videos -->
 
-<video class="desktop" autoplay playsinline>
+<video class="desktop" autoplay muted playsinline>
 <source src="video1.mp4" type="video/mp4">
 </video>
 
-<video class="desktop" autoplay playsinline>
+<video class="desktop" autoplay muted playsinline>
 <source src="video2.mp4" type="video/mp4">
 </video>
 
-<!-- Mobile -->
 
-<video class="mobile" autoplay playsinline>
+<!-- Mobile Videos -->
+
+<video class="mobile" autoplay muted playsinline>
 <source src="video1-mobile.mp4" type="video/mp4">
 </video>
 
-<video class="mobile" autoplay playsinline>
+<video class="mobile" autoplay muted playsinline>
 <source src="video2-mobile.mp4" type="video/mp4">
 </video>
 
 </body>
-
 </html>
