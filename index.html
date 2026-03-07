@@ -30,32 +30,21 @@ object-fit:cover;
 <video id="doorVideo" playsinline>
 <source src="door.mp4" type="video/mp4">
 </video>
-
+  
 <script>
 
 let video = document.getElementById("doorVideo");
 
-/* Laptop Double Click */
+/* Single Click (Laptop) */
 
-video.addEventListener("dblclick", function(){
+video.addEventListener("click", function(){
 video.play();
 });
 
-/* Mobile Double Tap */
+/* Single Tap (Mobile) */
 
-let lastTap = 0;
-
-video.addEventListener("touchend", function(){
-
-let currentTime = new Date().getTime();
-let tapLength = currentTime - lastTap;
-
-if(tapLength < 300 && tapLength > 0){
+video.addEventListener("touchstart", function(){
 video.play();
-}
-
-lastTap = currentTime;
-
 });
 
 /* Video End → Next Page */
@@ -65,6 +54,8 @@ window.location.href = "second.html";
 };
 
 </script>
+  
 
 </body>
 </html>
+
