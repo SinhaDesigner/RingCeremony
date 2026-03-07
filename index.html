@@ -4,7 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Wedding Invite</title>
 
@@ -15,7 +15,6 @@ margin:0;
 padding:0;
 background:white;
 overflow-x:hidden;
-touch-action:manipulation;
 }
 
 .section{
@@ -70,6 +69,7 @@ display:block;
 </div>
 
 
+
 <!-- DESKTOP VIDEO 1 -->
 
 <div class="section desktop-video">
@@ -81,6 +81,7 @@ display:block;
 </video>
 
 </div>
+
 
 
 <!-- DESKTOP VIDEO 2 -->
@@ -96,6 +97,7 @@ display:block;
 </div>
 
 
+
 <!-- MOBILE VIDEO 1 -->
 
 <div class="section mobile-video">
@@ -107,6 +109,7 @@ display:block;
 </video>
 
 </div>
+
 
 
 <!-- MOBILE VIDEO 2 -->
@@ -127,13 +130,11 @@ display:block;
 
 let door = document.getElementById("doorVideo");
 
+
 /* DESKTOP DOUBLE CLICK */
 
-door.addEventListener("dblclick", function(e){
-
-e.preventDefault();
+door.addEventListener("dblclick", function(){
 door.play();
-
 });
 
 
@@ -141,16 +142,13 @@ door.play();
 
 let lastTap = 0;
 
-door.addEventListener("touchend", function(e){
+door.addEventListener("touchend", function(){
 
 let currentTime = new Date().getTime();
 let tapLength = currentTime - lastTap;
 
 if (tapLength < 300 && tapLength > 0){
-
-e.preventDefault();
 door.play();
-
 }
 
 lastTap = currentTime;
@@ -158,7 +156,7 @@ lastTap = currentTime;
 });
 
 
-/* VIDEO END → AUTO SCROLL */
+/* DOOR VIDEO END → SCROLL */
 
 door.onended = function(){
 
@@ -167,7 +165,22 @@ top: window.innerHeight,
 behavior: "smooth"
 });
 
+playNextVideos();
+
 };
+
+
+/* PLAY NEXT VIDEOS */
+
+function playNextVideos(){
+
+let videos = document.querySelectorAll(".desktop-video video, .mobile-video video");
+
+videos.forEach(function(v){
+v.play().catch(()=>{});
+});
+
+}
 
 </script>
 
