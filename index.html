@@ -1,78 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Experience</title>
-    <style>
-        body { font-family: sans-serif; background: #000; color: #fff; margin: 0; text-align: center; }
-        video { width: 90%; max-width: 800px; border: 2px solid #333; margin-top: 20px; }
-        .hidden { display: none; }
-        .video-container { padding: 20px; }
-        h2 { font-size: 1.2rem; margin-bottom: 10px; }
-    </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Door</title>
+
+<style>
+
+body{
+margin:0;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+video{
+width:100%;
+height:100%;
+object-fit:cover;
+cursor:pointer;
+}
+
+</style>
 </head>
+
 <body>
 
-    <div id="door-section">
-        <h2>Double Click to Play Door Video</h2>
-        <video id="doorVideo" playsinline>
-            <source src="door.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+<video id="doorVideo" playsinline>
+<source src="door.mp4" type="video/mp4">
+</video>
 
-    <div id="main-content" class="hidden">
-        <div class="video-container">
-            <div id="laptop-view">
-                <h2>Laptop Mode: Video 1 & 2</h2>
-                <video id="video1" controls><source src="video1.mp4" type="video/mp4"></video>
-                <video id="video2" controls><source src="video2.mp4" type="video/mp4"></video>
-            </div>
+<script>
 
-            <div id="mobile-view">
-                <h2>Mobile Mode: Video 1 & 2</h2>
-                <video id="video1-mob" controls><source src="video1-mobile.mp4" type="video/mp4"></video>
-                <video id="video2-mob" controls><source src="video2-mobile.mp4" type="video/mp4"></video>
-            </div>
-        </div>
-    </div>
+let video = document.getElementById("doorVideo");
 
-    <script>
-        const doorVideo = document.getElementById('doorVideo');
-        const doorSection = document.getElementById('door-section');
-        const mainContent = document.getElementById('main-content');
-        const laptopView = document.getElementById('laptop-view');
-        const mobileView = document.getElementById('mobile-view');
+/* DOUBLE CLICK (Laptop) */
+video.addEventListener("dblclick", function(){
+video.play();
+});
 
-        // 1. Double Click Logic for Door Video
-        doorVideo.addEventListener('dblclick', function() {
-            doorVideo.play();
-        });
+/* DOUBLE TAP (Mobile) */
 
-        // 2. Door Video khatam hone ke baad agla page (section) dikhao
-        doorVideo.onended = function() {
-            doorSection.classList.add('hidden');
-            mainContent.classList.remove('hidden');
-            checkDevice();
-        };
+let lastTap = 0;
 
-        // 3. Device Check Logic (Laptop vs Mobile)
-        function checkDevice() {
-            if (window.innerWidth <= 768) {
-                // Mobile View
-                laptopView.style.display = 'none';
-                mobileView.style.display = 'block';
-            } else {
-                // Laptop View
-                laptopView.style.display = 'block';
-                mobileView.style.display = 'none';
-            }
-        }
+video.addEventListener("touchend", function(){
 
-        // Screen resize hone par bhi check karega
-        window.addEventListener('resize', checkDevice);
-    </script>
+let currentTime = new Date().getTime();
+let tapLength = currentTime - lastTap;
+
+if(tapLength < 300 && tapLength > 0){
+video.play();
+}
+
+lastTap = currentTime;
+
+});
+
+/* VIDEO END → NEXT PAGE */
+
+video.onended = function(){
+window.location.href = "second.html";
+};
+
+</script>
 
 </body>
+
 </html>
