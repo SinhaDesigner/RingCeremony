@@ -9,12 +9,10 @@
 
 body{
 margin:0;
-background:black;
-}
-
-.section{
-width:100%;
-line-height:0;
+background-image:url("background.jpg");   /* yaha apni image lagao */
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
 }
 
 video{
@@ -23,7 +21,7 @@ height:auto;
 display:block;
 }
 
-/* Desktop */
+/* desktop */
 
 .desktop{
 display:block;
@@ -33,7 +31,7 @@ display:block;
 display:none;
 }
 
-/* Mobile */
+/* mobile */
 
 @media(max-width:768px){
 
@@ -53,30 +51,65 @@ display:block;
 
 <body>
 
-<div class="section">
+<!-- Background Music -->
+
+<audio id="bgmusic" autoplay loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
 
 <!-- Desktop Videos -->
 
-<video class="desktop" autoplay muted playsinline>
+<video id="video1" class="desktop" muted playsinline>
 <source src="video1.mp4" type="video/mp4">
 </video>
 
-<video class="desktop" autoplay muted playsinline>
+<video id="video2" class="desktop" muted playsinline>
 <source src="video2.mp4" type="video/mp4">
 </video>
 
 
 <!-- Mobile Videos -->
 
-<video class="mobile" autoplay muted playsinline>
+<video id="video1m" class="mobile" muted playsinline>
 <source src="video1-mobile.mp4" type="video/mp4">
 </video>
 
-<video class="mobile" autoplay muted playsinline>
+<video id="video2m" class="mobile" muted playsinline>
 <source src="video2-mobile.mp4" type="video/mp4">
 </video>
 
-</div>
+
+<script>
+
+/* DESKTOP */
+
+let v1 = document.getElementById("video1");
+let v2 = document.getElementById("video2");
+
+if(v1){
+v1.play();
+
+v1.onended = function(){
+v2.play();
+};
+}
+
+
+/* MOBILE */
+
+let v1m = document.getElementById("video1m");
+let v2m = document.getElementById("video2m");
+
+if(v1m){
+v1m.play();
+
+v1m.onended = function(){
+v2m.play();
+};
+}
+
+</script>
 
 </body>
 </html>
