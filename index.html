@@ -17,8 +17,6 @@ background:white;
 overflow-x:hidden;
 }
 
-/* SECTION */
-
 .section{
 width:100%;
 height:100vh;
@@ -26,8 +24,6 @@ display:flex;
 justify-content:center;
 align-items:center;
 }
-
-/* VIDEO */
 
 video{
 max-width:100%;
@@ -61,11 +57,11 @@ display:block;
 
 <body>
 
-<!-- DOOR VIDEO (Same for Mobile + Desktop) -->
+<!-- DOOR VIDEO -->
 
 <div class="section">
 
-<video id="doorVideo" muted playsinline>
+<video id="doorVideo" muted playsinline preload="auto">
 
 <source src="door.mp4" type="video/mp4">
 
@@ -79,7 +75,7 @@ display:block;
 
 <div class="section desktop-video">
 
-<video autoplay muted playsinline preload="none">
+<video muted playsinline preload="none">
 
 <source src="video1.mp4" type="video/mp4">
 
@@ -93,7 +89,7 @@ display:block;
 
 <div class="section desktop-video">
 
-<video autoplay muted playsinline preload="none">
+<video muted playsinline preload="none">
 
 <source src="video2.mp4" type="video/mp4">
 
@@ -107,7 +103,7 @@ display:block;
 
 <div class="section mobile-video">
 
-<video autoplay muted playsinline preload="none">
+<video muted playsinline preload="none">
 
 <source src="video1-mobile.mp4" type="video/mp4">
 
@@ -121,7 +117,7 @@ display:block;
 
 <div class="section mobile-video">
 
-<video autoplay muted playsinline preload="none">
+<video muted playsinline preload="none">
 
 <source src="video2-mobile.mp4" type="video/mp4">
 
@@ -133,25 +129,13 @@ display:block;
 
 <script>
 
-/* DOUBLE TAP START */
+/* DOUBLE CLICK START */
 
 let door = document.getElementById("doorVideo");
 
-let lastTap = 0;
-
-door.addEventListener("touchend", function(){
-
-let currentTime = new Date().getTime();
-
-let tapLength = currentTime - lastTap;
-
-if (tapLength < 300 && tapLength > 0){
+door.addEventListener("dblclick", function(){
 
 door.play();
-
-}
-
-lastTap = currentTime;
 
 });
 
@@ -170,4 +154,4 @@ behavior: "smooth"
 </script>
 
 </body>
-  </html>
+</html>
