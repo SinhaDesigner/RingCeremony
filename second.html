@@ -12,11 +12,15 @@ margin:0;
 background:black;
 }
 
+.section{
+width:100%;
+line-height:0;
+}
+
 video{
 width:100%;
 height:auto;
 display:block;
-object-fit:cover;
 }
 
 /* Desktop */
@@ -49,6 +53,8 @@ display:block;
 
 <body>
 
+<div class="section">
+
 <!-- Desktop Videos -->
 
 <video class="desktop" autoplay muted playsinline>
@@ -69,6 +75,8 @@ display:block;
 <video class="mobile" autoplay muted playsinline>
 <source src="video2-mobile.mp4" type="video/mp4">
 </video>
+
+</div>
 
 </body>
 </html>
