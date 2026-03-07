@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,6 @@
 body{
 margin:0;
 overflow:hidden;
-background:black;
 }
 
 video{
@@ -30,22 +30,25 @@ object-fit:cover;
 <video id="doorVideo" playsinline>
 <source src="door.mp4" type="video/mp4">
 </video>
-  
+
 <script>
 
 let video = document.getElementById("doorVideo");
 
-/* Single Click (Laptop) */
+/* Single Click / Tap */
 
-video.addEventListener("click", function(){
+function startVideo(){
 video.play();
-});
+}
 
-/* Single Tap (Mobile) */
+/* Laptop click */
 
-video.addEventListener("touchstart", function(){
-video.play();
-});
+video.addEventListener("click", startVideo);
+
+/* Mobile tap */
+
+video.addEventListener("touchstart", startVideo);
+
 
 /* Video End → Next Page */
 
@@ -54,8 +57,7 @@ window.location.href = "second.html";
 };
 
 </script>
-  
 
 </body>
-</html>
 
+</html>
