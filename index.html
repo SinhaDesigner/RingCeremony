@@ -4,7 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>Wedding Invite</title>
 
@@ -15,6 +15,7 @@ margin:0;
 padding:0;
 background:white;
 overflow-x:hidden;
+touch-action:manipulation;
 }
 
 .section{
@@ -31,7 +32,7 @@ max-height:100%;
 object-fit:contain;
 }
 
-/* MOBILE CONTROL */
+/* MOBILE / DESKTOP VIDEO CONTROL */
 
 .mobile-video{
 display:none;
@@ -69,7 +70,6 @@ display:block;
 </div>
 
 
-
 <!-- DESKTOP VIDEO 1 -->
 
 <div class="section desktop-video">
@@ -81,7 +81,6 @@ display:block;
 </video>
 
 </div>
-
 
 
 <!-- DESKTOP VIDEO 2 -->
@@ -97,7 +96,6 @@ display:block;
 </div>
 
 
-
 <!-- MOBILE VIDEO 1 -->
 
 <div class="section mobile-video">
@@ -109,7 +107,6 @@ display:block;
 </video>
 
 </div>
-
 
 
 <!-- MOBILE VIDEO 2 -->
@@ -128,12 +125,15 @@ display:block;
 
 <script>
 
-/* DESKTOP DOUBLE CLICK */
-
 let door = document.getElementById("doorVideo");
 
-door.addEventListener("dblclick", function(){
+/* DESKTOP DOUBLE CLICK */
+
+door.addEventListener("dblclick", function(e){
+
+e.preventDefault();
 door.play();
+
 });
 
 
@@ -141,13 +141,16 @@ door.play();
 
 let lastTap = 0;
 
-door.addEventListener("touchend", function(){
+door.addEventListener("touchend", function(e){
 
 let currentTime = new Date().getTime();
 let tapLength = currentTime - lastTap;
 
 if (tapLength < 300 && tapLength > 0){
+
+e.preventDefault();
 door.play();
+
 }
 
 lastTap = currentTime;
