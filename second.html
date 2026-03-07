@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videos</title>
+
+<style>
+
+body{
+margin:0;
+background:black;
+}
+
+.container{
+width:100%;
+}
+
+video{
+width:100%;
+display:block;
+}
+
+.desktop{
+display:block;
+}
+
+.mobile{
+display:none;
+}
+
+@media(max-width:768px){
+
+.desktop{
+display:none;
+}
+
+.mobile{
+display:block;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Desktop Videos -->
+
+<video class="desktop" autoplay playsinline>
+<source src="video1.mp4" type="video/mp4">
+</video>
+
+<video class="desktop" autoplay playsinline>
+<source src="video2.mp4" type="video/mp4">
+</video>
+
+<!-- Mobile Videos -->
+
+<video class="mobile" autoplay playsinline>
+<source src="video1-mobile.mp4" type="video/mp4">
+</video>
+
+<video class="mobile" autoplay playsinline>
+<source src="video2-mobile.mp4" type="video/mp4">
+</video>
+
+</div>
+
+</body>
+</html>
